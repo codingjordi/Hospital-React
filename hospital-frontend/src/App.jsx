@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import './App.css'
 import Informes from "./informes/Informes";
-import Grupos from "./informes/Informes";
-import Mensajes from "./informes/Informes";
+import Grupos from "./grupos/Grupos";
+import Mensajes from "./mensajes/Mensajes";
 
 
 export default function App() {

@@ -9,7 +9,7 @@ export default function Layout () {
         <div>
           <Header />
         </div>
-        <div >
+        <div>
           <Link to="/informes">Informes</Link>
           <br/>
           <Link to="/grupos">Grupos</Link>
