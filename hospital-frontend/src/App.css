@@ -1,7 +1,12 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  --navbar-color: #A10859;
+  --outlet-color: #2148C0;
+}
 
+/* Estilos generales*/
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -9,6 +14,27 @@ body {
 h1 {
   color: white;
 }
+
+label {
+  font-weight: 500;
+  color: white;
+}
+
+input, select {
+  padding: 0.3rem 0.3rem;
+}
+
+button {
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+
+
+/* ESTILOS 'INFORMES' */
+
+
 
 .nav-link {
   font-size: 1.1rem;
@@ -23,6 +49,29 @@ h1 {
 }
 
 .nav-link.active {
-  color: #A10859;
+  color: var(--navbar-color);
   background-color: white;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.boton-buscar-informe {
+  background-color: white;
+  padding: 0 1rem;
+}
+
+.boton-crear-informe {
+  background-color: white;
+  color: var(--outlet-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0 0.8rem;
+  &:hover{
+    background-color: transparent;
+    color: white;
+  }
 }

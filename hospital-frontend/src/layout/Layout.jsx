@@ -10,7 +10,7 @@ export default function Layout () {
       <Header />
       <div style={{backgroundColor: '#2148C0', width: '100vw'}}>
         <div style={{margin: '1.2rem 3rem'}}>
-          <Outlet />
+          <Outlet/>
         </div>
       </div>
 
