@@ -1,5 +1,4 @@
 import {useState} from 'react';
-// import CrearInforme2 from './CrearInforme2';
 
 export default function CrearInforme1() {
 
@@ -9,14 +8,6 @@ export default function CrearInforme1() {
     });
 
     // const [botonAcceder, setBotonAcceder] = useState(false);
-
-    const handleChangeUser = (e) => {
-        setCredentials(
-            {...credentials, 
-                user: e.target.value
-            }
-        );
-    }
 
     const handleChangePassword = (e) => {
         setCredentials(
@@ -34,10 +25,10 @@ export default function CrearInforme1() {
     <div style={{display: 'flex', flexDirection: 'column'}}>
         
         <label htmlFor="user">Identificación</label>
-        <input 
+        {/* <input 
             id='user'
             value={credentials.user} 
-            onChange={handleChangeUser}/>
+            onChange={handleChangeUser}/> */}
 
         <label htmlFor="password">Constraseña</label>
         <input

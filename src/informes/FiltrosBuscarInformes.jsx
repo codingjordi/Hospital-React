@@ -16,7 +16,7 @@ export default function BuscarInformes() {
             </div>
             <div className="label-input">
                 <label htmlFor="buscar">Fecha</label>
-                <input type="date" id="buscar"/>
+                <input type="date" id="buscar" maxLength={10}/>
             </div>
             <div className="label-input">
                 <label htmlFor="buscar">Tipo de incidente</label>
@@ -46,5 +46,4 @@ export default function BuscarInformes() {
             <button className="boton-buscar-informe" id="boton-buscar-informe">Buscar</button>
         </div>
 );
-    /* */
 }

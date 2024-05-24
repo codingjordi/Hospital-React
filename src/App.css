@@ -1,5 +1,9 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 :root {
   --navbar-color: #A10859;
@@ -9,20 +13,48 @@
 /* Estilos generales*/
 body {
   font-family: "Montserrat", sans-serif;
+  color: white
 }
 
-h1 {
-  color: white;
-}
 
 label {
   font-weight: 500;
-  color: white;
+}
+
+textarea {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  height: 90%;
+  width: 100%;
+  border: none;
+}
+
+textarea:focus,
+textarea:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 input, select {
+  display: block;
   padding: 0.3rem 0.3rem;
+  border-radius: 4px;
+  border: white;
+  font-size: 1.05rem;
 }
+
+input[type="checkbox"] {
+  height: 2rem;
+  width: 2rem;
+  align-self: center;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
 
 button {
     border-radius: 4px;
@@ -30,11 +62,7 @@ button {
     border: 2px solid white;
 }
 
-
-
 /* ESTILOS 'INFORMES' */
-
-
 
 .nav-link {
   font-size: 1.1rem;
@@ -53,7 +81,7 @@ button {
   background-color: white;
 }
 
-.label-input {
+.label-input, .label-select {
   display: flex;
   flex-direction: column;
 }
@@ -75,3 +103,8 @@ button {
     color: white;
   }
 }
+
+input[type="date"] {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+

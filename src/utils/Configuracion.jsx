@@ -1,7 +1,7 @@
 export default function Configuracion() {
   return (
     <>
-<i className="fas fa-user-cog"></i>
+        <i class="fas fa-sliders" style={{color: 'white'}}></i>
     </>
   )
 }
