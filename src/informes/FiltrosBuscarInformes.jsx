@@ -1,4 +1,4 @@
-export default function BuscarInformes() {
+export default function FiltrosBuscarInformes() {
 
     return (
         <div style={{display: 'flex', gap: '10px'}}>

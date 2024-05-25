@@ -17,17 +17,17 @@ export default function ListarInformes() {
             <p>Loading...⏳🕰️⏰🕒🤷😴🧘📆</p>
           ) : (
             informes.map((informe) => (
-              <div key={informe.createdAt}>
-                <li>
-                  <b>Patient:</b> {informe.patient}  <br />
-                  <b>id:</b> {informe.id} <br />
-                  <b>Created:</b> {informe.createdAt} <br />
-                  <b>Grupo:</b> {informe.grupo} <br />
-                  <b>Gravedad:</b> {informe.gravedad} <br />
-                  <b>Completado:</b> {informe.completado} <br />
-                  <b>Detalles:</b> {informe.detalles}
+              <>
+                <li key={informe.createdAt}>
+                  <b>Fecha del incidente:</b>  {informe.dateOfIncidence} <br />
+                  <b>Nombre:</b> {informe.name}  <br />
+                  <b>Apellidos:</b> {informe.surnames} <br />
+                  <b>Tipo de lesión:</b> {informe.grupo} <br />
+                  <b>Nivel de gravedad:</b> {informe.gravityOfIncidence} <br />
+                  <b>Completado:</b> {informe.complete ? 'Completado' : 'No completado'} <br />
+                  <b>Detalles:</b> {informe.inform}
                 </li>
-              </div>
+              </>
             ))
           )}
         </ul>
