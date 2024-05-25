@@ -40,11 +40,62 @@ textarea:active {
 
 input, select {
   display: block;
-  padding: 0.3rem 0.3rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 4px;
   border: white;
   font-size: 1.05rem;
 }
+
+table, th, td {
+  border: 1px solid transparent;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+  font-weight: bold;
+}
+
+td {
+  line-height: 1.6;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+table, th, td {
+  border-radius: 4px;
+}
+
+th.center, td.center {
+  text-align: center;
+}
+
+th.right, td.right {
+  text-align: right;
+}
+
 
 input[type="checkbox"] {
   height: 2rem;

@@ -23,16 +23,16 @@ const  APIConnection = ({ children }) => {
       }
     };
     fetchInformes();
-  }, []);
+  }, [informes]);
 
-//  const deleteInforme = async (id) => {
-//    try {
-//      const response = await axios.delete(`${API_URL}/${id}`);
-//      setInformes(informes.filter((informe) => informe.id !== id));
-//    } catch (error) {
-//      console.error("Error deleting informe:", error);
-//    }
-//   };
+  const deleteInforme = async (id) => {
+    try {
+      const response = await axios.delete(`${API_URL}/${id}`);
+      setInformes(informes.filter((informe) => informe.id !== id));
+    } catch (error) {
+      console.error("Error deleting informe:", error);
+    }
+   };
 
   const addInforme = async (informe) => {
     try {
@@ -57,12 +57,26 @@ const  APIConnection = ({ children }) => {
     }
   };
 
+  {/*const getInformeById = async (id) => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/${informe.id}`,
+        informe
+      );
+      setInformes(
+        informes.map((informe) => (i.id === informe.id ? response.data : i))
+      );
+    } catch (error) {
+      console.error("Error getting informe:", error);
+    }
+  }*/}
+
     return (
         <InformesContext.Provider
         value={{
             informes,
             isLoading,
-            // deleteInforme,
+            deleteInforme,
             addInforme,
             updateInforme,
         }}
