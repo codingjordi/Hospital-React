@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BuscarInformes from "./BuscarInformes";
-import CrearInforme1 from "./CrearInforme/CrearInforme1";
+import CrearInforme from "./CrearInforme";
 
 
 
@@ -16,7 +16,7 @@ export default function Informes() {
         </div>
         {(isCreating) ?
             <div>
-                <CrearInforme1 />
+                <CrearInforme />
             </div>
             :
             <div>
