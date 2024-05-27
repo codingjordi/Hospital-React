@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import { InformesContext } from '../middleware/APIConnection';
 
 export default function ActualizarInforme({ informeId }) {
-  const { informes, setInformes, actualizarInforme } = useContext(InformesContext);
+  const { informes, setInformes, updateInforme } = useContext(InformesContext);
 
   const handleUpdate = () => {
     // Filtrar los informes para actualizar el informe con el ID dado
 
     const updatedInformes = informes.map((i) => (i.id === informe.id ? response.data : i));
-    actualizarInforme(informeId); // método PUT axios
+    updateInforme(informeId); // método PUT axios
     setInformes(updatedInformes);
   };
 
