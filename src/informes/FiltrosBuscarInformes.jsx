@@ -12,13 +12,6 @@ export default function FiltrosBuscarInformes() {
         inform: ''
     });
 
-    function handleIdChange(e) {
-        setInforme({
-            ...informe,
-            id: e.target.value
-        });
-    }
-
     function handleNameChange(e) {
         setInforme({
             ...informe,
@@ -63,10 +56,6 @@ export default function FiltrosBuscarInformes() {
 
     return (
         <div style={{ display: 'flex', gap: '10px' }}>
-            <div className="label-input">
-                <label htmlFor="idInforme">ID del informe</label>
-                <input type="text" id="idInforme" onChange={handleIdChange} />
-            </div>
             <div className="label-input">
                 <label htmlFor="nombre">Nombre</label>
                 <input type="text" id="nombre" onChange={handleNameChange} />

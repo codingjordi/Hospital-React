@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { InformesContext } from '../middleware/APIConnection';
 import EliminarInforme from './EliminarInforme.jsx' ;
+import AbrirInforme from './AbrirInforme.jsx';
+import TimestampToDate from '../utils/TimestampToDate.jsx';
 
 export default function ListarInformes() {
   const { informes, isLoading } = useContext(InformesContext);
@@ -15,33 +17,40 @@ export default function ListarInformes() {
       {isLoading ? (
         <p>Loading...⏳🕰️⏰🕒🤷😴🧘📆</p>
       ) : (
-        <table border="1" style={{display: 'inline-block' , width: '100%', textAlign: 'left', marginTop: '1rem' }}>
-          <thead>
-            <tr>
-              <th>Fecha del incidente</th>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Tipo de lesión</th>
-              <th>Nivel de gravedad</th>
-              <th>Completado</th>
-              <th>Detalles</th>
-            </tr>
-          </thead>
-          <tbody>
-            {informes.map((informe) => (
-              <tr key={informe.createdAt}>
-                <td>{informe.dateOfIncidence}</td>
-                <td>{informe.name}</td>
-                <td>{informe.surnames}</td>
-                <td>{informe.group}</td>
-                <td>{informe.gravityOfIncidence}</td>
-                <td>{informe.complete ? 'SI' : 'NO'}</td>
-                <td>{informe.inform}</td>
-                <td><EliminarInforme informeId={informe.id} /></td>
+        <>
+        <div style={{display: 'flex'}}>
+          <table border="1" style={{width: '100%', textAlign: 'left', marginTop: '1rem' }}>
+            <thead>
+              <tr>
+                <th>Fecha del incidente</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Tipo de lesión</th>
+                <th>Nivel de gravedad</th>
+                <th>Completado</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+              <tbody>
+                {informes.map((informe) => (
+                  <tr key={informe.createdAt}>
+                    <td><TimestampToDate timestamp={informe.dateOfIncidence} /></td>
+                    <td>{informe.name}</td>
+                    <td>{informe.surnames}</td>
+                    <td>{informe.group}</td>
+                    <td>{informe.gravityOfIncidence}</td>
+                    <td>{informe.complete ? 'SI' : 'NO'}</td>
+                    <td><EliminarInforme informeId={informe.id} /></td>
+                    <td><AbrirInforme /></td>
+                  </tr>
+                ))}
+              </tbody>
+          </table>
+          <div style={{marginLeft: '1.2rem', width: '40%'}} >
+              <p style={{color: 'black'}}>Informe del paciente</p>
+              </div>
+        </div>
+        </>
+        
       )}
     </div>
   );

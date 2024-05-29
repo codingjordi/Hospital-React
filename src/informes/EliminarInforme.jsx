@@ -13,7 +13,7 @@ export default function EliminarInforme({ informeId }) {
   };
 
   return (
-    <button onClick={handleDelete} style={{ color: 'red', border: 'none', background: 'none', cursor: 'pointer' }}>
+    <button onClick={handleDelete} style={{ color: 'red', beorder: 'none', background: 'none', cursor: 'pointer' }}>
       Eliminar
     </button>
   );

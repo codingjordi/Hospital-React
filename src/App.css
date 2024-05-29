@@ -59,6 +59,10 @@ table {
   overflow-y: scroll;
 }
 
+thead {
+  background-color: #f2f2f2;
+}
+
 th, td {
   padding: 12px;
   text-align: left;
