@@ -1,7 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -33,12 +35,13 @@ textarea {
 
 textarea:focus,
 textarea:active {
-    outline: none;
-    border: none;
-    box-shadow: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
-input, select {
+input,
+select {
   display: block;
   padding: 0.3rem 0.5rem;
   border-radius: 4px;
@@ -46,7 +49,9 @@ input, select {
   font-size: 1.05rem;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid transparent;
 }
 
@@ -63,7 +68,8 @@ thead {
   background-color: #f2f2f2;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -88,15 +94,19 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-table, th, td {
+table,
+th,
+td {
   border-radius: 4px;
 }
 
-th.center, td.center {
+th.center,
+td.center {
   text-align: center;
 }
 
-th.right, td.right {
+th.right,
+td.right {
   text-align: right;
 }
 
@@ -112,9 +122,23 @@ input[type="checkbox"] {
 
 
 button {
-    border-radius: 4px;
-    cursor: pointer;
-    border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+button.cerrar-informe {
+  align-self: 'center';
+  padding: 5px;
+  border-radius: '50%';
+  margin-right: '7px';
+  font-weight: 600;
+  font-size: '0.8rem';
+  width: '20px';
+  height: '20px';
+  background-color: '#aacde6';
+  color: 'white';
+  border: 'none';
 }
 
 /* ESTILOS 'INFORMES' */
@@ -136,7 +160,8 @@ button {
   background-color: white;
 }
 
-.label-input, .label-select {
+.label-input,
+.label-select {
   display: flex;
   flex-direction: column;
 }
@@ -153,7 +178,8 @@ button {
   font-weight: 500;
   font-size: 0.9rem;
   padding: 0 0.8rem;
-  &:hover{
+
+  &:hover {
     background-color: transparent;
     color: white;
   }
@@ -162,4 +188,3 @@ button {
 input[type="date"] {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
-
