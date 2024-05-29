@@ -10,6 +10,9 @@ const  APIConnection = ({ children }) => {
 
   const [informes, setInformes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  // const [userType, setUserType] = useState(''
+
+  // }
 
   useEffect(() => {
     const fetchInformes = async () => {

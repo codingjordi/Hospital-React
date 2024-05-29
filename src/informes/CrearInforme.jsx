@@ -45,17 +45,37 @@
       });
     }
 
-    function handleCompleteChange(e) {
-      if (e.target.checked) {
-        const confirmed = window.confirm('Vas a marcar este informe como completado. ¿Quieres continuar?');
-        if (!confirmed) {
-          return;
-        }
+    // no borrarrr function handleCompleteChange(e) {
+    //   if (e.target.checked) {
+    //     const confirmed = window.confirm('Vas a marcar este informe como completado. ¿Quieres continuar?');
+    //     if (!confirmed) {
+    //       return;
+    //     }
+    //   }
+    //   setInforme({
+    //     ...informe,
+    //     complete: e.target.checked,
+    //     dateCompleted: e.target.checked ? formatDateTime(new Date()) : ''
+    //   });
+    // }
+
+    function handleGuardarInforme(e) {
+      e.preventDefault(); 
+      // Valida si todos los campos requeridos están llenos
+      if (!informe.name || !informe.surnames || !informe.group || !informe.gravityOfIncidence || !informe.dateOfIncidence) {
+        alert('Por favor, complete todos los campos requeridos.');
+        return;
       }
+      addInforme(informe);
       setInforme({
-        ...informe,
-        complete: e.target.checked,
-        dateCompleted: e.target.checked ? formatDateTime(new Date()) : ''
+        name: '',
+        surnames: '',
+        group: '',
+        gravityOfIncidence: '',
+        complete: false,
+        dateOfIncidence: '',
+        dateCompleted: '',
+        inform: ''
       });
     }
 
@@ -73,29 +93,16 @@
       });
     }
 
-    function handleGuardarInforme(){
-      addInforme(informe);
-      setInforme({
-        name: '',
-        surnames: '',
-        group: '',
-        gravityOfIncidence: '',
-        complete: false,
-        dateOfIncidence: '',
-        dateCompleted: '',
-        inform: ''
-      })
-    }
-
-    function formatDateTime(date) {
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
-      const seconds = String(date.getSeconds()).padStart(2, '0');
-      return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
-    }
+    // no borrar! lo necesitaremos
+    // function formatDateTime(date) {
+    //   const day = String(date.getDate()).padStart(2, '0');
+    //   const month = String(date.getMonth() + 1).padStart(2, '0');
+    //   const year = date.getFullYear();
+    //   const hours = String(date.getHours()).padStart(2, '0');
+    //   const minutes = String(date.getMinutes()).padStart(2, '0');
+    //   const seconds = String(date.getSeconds()).padStart(2, '0');
+    //   return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+    // }
 
     return (
       <>
@@ -103,21 +110,21 @@
           <div style={{ display: 'flex', gap: '10px' }}>
             <div className=" ">
               <label htmlFor="name">Nombre</label>
-              <input type="text" name="name" value={informe.name} onChange={handleNameChange} />
+              <input type="text" name="name" value={informe.name} onChange={handleNameChange} required/>
             </div>
             <div className=" ">
               <label htmlFor="surnames">Apellidos</label>
-              <input type="text" name="surnames" value={informe.surnames} onChange={handleSurnamesChange} />
+              <input type="text" name="surnames" value={informe.surnames} onChange={handleSurnamesChange} required/>
             </div>
             <div className=" ">
               <label htmlFor="dateOfIncidence">Fecha del incidente</label>
-              <input type="date" name="dateOfIncidence" value={informe.dateOfIncidence} onChange={handleDateOfIncidenceChange} />
+              <input type="date" name="dateOfIncidence" value={informe.dateOfIncidence} onChange={handleDateOfIncidenceChange} required/>
             </div>
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
             <div className=" ">
               <label htmlFor="gravityOfIncidence">Tipo de incidencia</label>
-              <select id="gravityOfIncidence" name="gravityOfIncidence" value={informe.gravityOfIncidence} onChange={handleGravityOfIncidenceChange}>
+              <select id="gravityOfIncidence" name="gravityOfIncidence" value={informe.gravityOfIncidence} onChange={handleGravityOfIncidenceChange} required>
                 <option value=""></option>
                 <option value="1">1 - Gravedad baja</option>
                 <option value="2">2 - Gravedad leve</option>
@@ -128,30 +135,30 @@
             </div>
             <div className=" ">
               <label htmlFor="group">Tipo de incidente</label>
-              <select name="group" id="group" value={informe.group} onChange={handleGroupChange}>
+              <select name="group" id="group" value={informe.group} onChange={handleGroupChange} required >
                 <option value=""></option>
                 <option value="Fugas">Fugas</option>
                 <option value="Caídas">Caídas</option>
                 <option value="Agresiones">Agresiones</option>
                 <option value="Errores de mediación">Errores de mediación</option>
                 <option value="Infecciones">Infecciones</option>
-                <option value="Herdos crónicos">Herdos crónicos</option>
+                <option value="Herdos crónicos">Heridos crónicos</option>
                 <option value="Ausencia en terapias">Ausencia en terapias</option>
                 <option value="Conductas adictivas">Conductas adictivas</option>
                 <option value="Otro incidente">Otro incidente</option>
               </select>
             </div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          {/* no borrarsh <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div className=" " style={{ display: 'flex', flexDirection: 'column' }}>
               <label htmlFor="complete">Completado</label>
-              <input type="checkbox" name="complete" checked={informe.complete} onChange={handleCompleteChange} />
+              <input type="checkbox" name="complete" checked={informe.complete} onChange={handleCompleteChange}/>
             </div>
             <div className=" ">
               <label htmlFor="dateCompleted">Fecha de completado</label>
-              <input type="text" name="dateCompleted" value={informe.dateCompleted} readOnly />
+              <input type="text" name="dateCompleted" value={informe.dateCompleted} readOnly/>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div style={{ backgroundColor: 'white', marginTop: '2rem', padding: '1rem', height: '55vh', borderRadius: '10px' }}>
