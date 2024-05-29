@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { InformesContext } from '../middleware/APIConnection';
 
+// eslint-disable-next-line react/prop-types
 export default function EliminarInforme({ informeId }) {
   const { informes, setInformes, deleteInforme } = useContext(InformesContext);
 
   const handleDelete = () => {
-    // Filtrar los informes para eliminar el informe con el ID dado
 
     const updatedInformes = informes.filter(informe => informe.id !== informeId);
     deleteInforme(informeId); // método DELETE axios
