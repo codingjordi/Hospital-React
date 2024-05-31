@@ -38,8 +38,8 @@ export default function ListarInformes() {
                 <td>{informe.gravityOfIncidence}</td>
                 <td>{informe.complete ? 'SI' : 'NO'}</td>
                 <td>{informe.inform}</td>
-                <td><EliminarInforme informeId={informe.id} /></td>
                 <td><ActualizarInforme informeId={informe.id} /></td>
+                <td><EliminarInforme informeId={informe.id} /></td>
               </tr>
             ))}
           </tbody>
