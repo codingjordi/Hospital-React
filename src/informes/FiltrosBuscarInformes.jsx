@@ -12,13 +12,6 @@ export default function FiltrosBuscarInformes() {
         inform: ''
     });
 
-    function handleIdChange(e) {
-        setInforme({
-            ...informe,
-            id: e.target.value
-        });
-    }
-
     function handleNameChange(e) {
         setInforme({
             ...informe,
@@ -64,22 +57,28 @@ export default function FiltrosBuscarInformes() {
     return (
         <div style={{ display: 'flex', gap: '10px' }}>
             <div className="label-input">
-                <label htmlFor="idInforme">ID del informe</label>
-                <input type="text" id="idInforme" onChange={handleIdChange} />
-            </div>
-            <div className="label-input">
                 <label htmlFor="nombre">Nombre</label>
                 <input type="text" id="nombre" onChange={handleNameChange} />
             </div>
             <div className="label-input">
+                <label htmlFor="nombre">Nombre</label>
+                <input type="text" id="nombre" onChange={handleNameChange} />
                 <label htmlFor="apellidos">Apellidos</label>
                 <input type="text" id="apellidos" onChange={handleSurnamesChange} />
+            </div>
+            <div className="label-input">
+                <label htmlFor="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" onChange={handleSurnamesChange} />
+                <label htmlFor="fecha">Fecha</label>
+                <input type="date" id="fecha" onChange={handleDateOfIncidenceChange} maxLength={10} />
             </div>
             <div className="label-input">
                 <label htmlFor="fecha">Fecha</label>
                 <input type="date" id="fecha" onChange={handleDateOfIncidenceChange} maxLength={10} />
             </div>
             <div className="label-input">
+                <label htmlFor="tipoIncidente">Tipo de incidente</label>
+                <select name="gravityOfIncidence" id="tipoIncidente" onChange={handleGravityChange}>
                 <label htmlFor="tipoIncidente">Tipo de incidente</label>
                 <select name="gravityOfIncidence" id="tipoIncidente" onChange={handleGravityChange}>
                     <option value=""></option>

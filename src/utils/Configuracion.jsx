@@ -1,7 +1,7 @@
 export default function Configuracion() {
   return (
     <>
-        <i class="fas fa-sliders" style={{color: 'white'}}></i>
+        <i className="fas fa-sliders" style={{color: 'white', cursor: 'pointer'}}></i>
     </>
   )
 }
