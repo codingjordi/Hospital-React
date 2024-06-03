@@ -11,7 +11,7 @@
 5. [Contributing](#contributing)
 6. [License](#license)
 
-## Project Structure
+## Project Structure  
 The project has the following structure:
 - **public/**: Contains the static files such as `index.html`.
 - **src/**: Contains the source code for the React application.
@@ -42,7 +42,59 @@ The project uses the following major dependencies:
 For a complete list of dependencies, refer to the `package.json` file.
 
 ## Installation
+
 To install and set up the project locally, follow these steps:
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/codingjordi/Hospital-React.git
+   ```
+2. Navigate to the project directory:
+
+```bash
+  cd Hospital-React
+```
+3. Install the dependencies:
+
+```bash
+    npm install
+```
+## Usage
+
+To start the development server, run:
+
+```bash
+
+npm run dev
+```
+
+This will start the Vite development server, and you can access the application at http://localhost:3000.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+  1. Fork the repository.
+  2. Create a new branch for your feature or bugfix:
+    
+```bash
+git checkout -b feature-name
+```
+3. Commit your changes:
+
+```bash
+git commit -m "Add some feature"
+```
+4. Push to the branch:
+
+```bash
+
+    git push origin feature-name
+```
+5. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License. For more details, see the LICENSE file.
+
+For more information, visit the GitHub repository.
