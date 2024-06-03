@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { InformesContext } from '../middleware/APIConnection';
 import EliminarInforme from './EliminarInforme.jsx';
-import ActualizarInforme from './ActualizarInforme.jsx';
+import UpdateInforme from './ActualizarInforme.jsx';
 import TimestampToDate from '../utils/TimestampToDate.jsx';
 
 export default function ListarInformes() {
@@ -50,7 +50,7 @@ export default function ListarInformes() {
                   <td>{informe.group}</td>
                   <td>{informe.gravityOfIncidence}</td>
                   <td>{informe.complete ? 'SI' : 'NO'}</td>
-                  <td><ActualizarInforme informeId={informe.id} /></td>
+                  <td><UpdateInforme informeId={informe.id} /></td>
                   <td><EliminarInforme informeId={informe.id} /></td>
                   <td><button onClick={() => handleAbrirInforme(informe)} style={{ padding: '0.5rem', borderRadius: '5px', backgroundColor: '#2148C0', color: 'white', border: 'none' }}>Abrir</button></td>
                 </tr>
