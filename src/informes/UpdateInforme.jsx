@@ -10,7 +10,7 @@ const UpdateReport = () => {
     surnames: 'Fahey',
     group: 'Fugas',
     gravityOfIncidence: '6',
-    complete: false,
+    complete:'',
     dateOfIncidence: '29-05-2024 21:51:45',
     dateCompleted: 'Yes',
     inform: '509'
@@ -50,46 +50,89 @@ const UpdateReport = () => {
   return (
     <div>
       {isEditing ? (
-        <div>
+        <div style={{ backgroundColor: 'white', marginTop: '2rem', padding: '1rem', height: '72vh', borderRadius: '10px', overflow: 'scroll' }}>
           <input
             value={editableReport.inform}
-            style={{ color: 'white', backgroundColor: 'red'}}
+            style={{ color: 'white', backgroundColor: 'blue'}}
           />
-          <textarea
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>
+          <label htmlFor="name">Nombre</label>
+          <textarea 
             name="name"
             value={editableReport.name}
             onChange={handleChange}
-          />
+            />
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>
+          <label htmlFor="surnames">Apellidos</label>
           <textarea
             name="surnames"
             value={editableReport.surnames}
             onChange={handleChange}
           />
-          <textarea
-            name="group"
-            value={editableReport.group}
-            onChange={handleChange}
-          />
-          <textarea
-            name="gravityOfIncidence"
-            value={editableReport.gravityOfIncidence}
-            onChange={handleChange}
-          />
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <label htmlFor="group">Grupo</label>
+          <br></br>
+          <br></br>
+            <select name="group" value={editableReport.group} onChange={handleChange} required >
+              <option value=""></option>
+              <option value="Fugas">Fugas</option>
+              <option value="Caídas">Caídas</option>
+              <option value="Agresiones">Agresiones</option>
+              <option value="Errores de mediación">Errores de mediación</option>
+              <option value="Infecciones">Infecciones</option>
+              <option value="Herdos crónicos">Heridos crónicos</option>
+              <option value="Ausencia en terapias">Ausencia en terapias</option>
+              <option value="Conductas adictivas">Conductas adictivas</option>
+              <option value="Otro incidente">Otro incidente</option>
+            </select>
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <label htmlFor="gravityOfIncidence">Nivel de Gravedad</label>
+          <br></br>
+          <br></br>
+          <select name="gravityOfIncidence" value={editableReport.gravityOfIncidence} onChange={handleChange} required>
+              <option value=""></option>
+              <option value="1">1 - Gravedad baja</option>
+              <option value="2">2 - Gravedad leve</option>
+              <option value="3">3 - Gravedad moderada</option>
+              <option value="4">4 - Gravedad alta</option>
+              <option value="5">5 - Gravedad extrema</option>
+            </select>
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <label htmlFor="complete">Completado</label>
           <textarea
             name="complete"
             value={editableReport.complete}
             onChange={handleChange}
           />
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <label htmlFor="dateOfIncidence">Fecha del Incidente</label>
           <textarea
             name="dateOfIncidence"
             value={editableReport.dateOfIncidence}
             onChange={handleChange}
           />
+          </div>
+          <br></br>
+          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <label htmlFor="dateCompleted">Fecha de Actualización del Informe</label>
           <textarea
             name="dateCompleted"
             value={editableReport.dateCompleted}
             onChange={handleChange}
           />
+          </div>
+          <br></br>
           <button onClick={handleSaveClick}>Guardar</button>
           <button onClick={handleCancelClick}>Cancelar</button>
         </div>
