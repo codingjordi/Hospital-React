@@ -8,12 +8,13 @@ const UpdateReport = () => {
   const [report, setReport] = useState({
     name: 'Fiona',
     surnames: 'Fahey',
-    group: 'Fugas',
-    gravityOfIncidence: '6',
-    complete:'',
+    group: '',
+    gravityOfIncidence: '',
+    complete:'Yes',
     dateOfIncidence: '29-05-2024 21:51:45',
-    dateCompleted: 'Yes',
-    inform: '509'
+    dateCompleted: '3-06-2024 16:43:17',
+    inform: '509',
+    detalles: '',
   });
 
   // Estado para manejar una copia de los datos durante la edición
@@ -50,31 +51,38 @@ const UpdateReport = () => {
   return (
     <div>
       {isEditing ? (
-        <div style={{ backgroundColor: 'white', marginTop: '2rem', padding: '1rem', height: '72vh', borderRadius: '10px', overflow: 'scroll' }}>
+        <div style={{ display: 'flex', borderRadius: '8px', backgroundColor: 'pink'}}>
           <input
             value={editableReport.inform}
-            style={{ color: 'white', backgroundColor: 'blue'}}
+            style={{ width: '100px', height: '50px', color: 'white', backgroundColor: 'blue', fontSize: '1.5rem', margin: '40px', textAlign: 'center' }}
           />
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>
+          <br></br>
+          <div style={{ margin: '20px', color: 'black' }}>
           <label htmlFor="name">Nombre</label>
-          <textarea 
+          <br></br>
+          <br></br>
+          <input
             name="name"
             value={editableReport.name}
             onChange={handleChange}
             />
           </div>
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>
+          <br></br>
+          <div style={{ margin: '20px', color: 'black' }}>
           <label htmlFor="surnames">Apellidos</label>
-          <textarea
+          <br></br>
+          <br></br>
+          <input
             name="surnames"
             value={editableReport.surnames}
             onChange={handleChange}
           />
           </div>
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <br></br>
+          <div style={{ margin: '20px', color: 'black' }}>            
           <label htmlFor="group">Grupo</label>
           <br></br>
           <br></br>
@@ -92,7 +100,7 @@ const UpdateReport = () => {
             </select>
           </div>
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <div style={{ margin: '20px', color: 'black' }}>            
           <label htmlFor="gravityOfIncidence">Nivel de Gravedad</label>
           <br></br>
           <br></br>
@@ -106,35 +114,38 @@ const UpdateReport = () => {
             </select>
           </div>
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <br></br>
+          <div style={{ margin: '20px', color: 'black' }}>            
           <label htmlFor="complete">Completado</label>
-          <textarea
+          <br></br>
+          <br></br>
+          <input
             name="complete"
             value={editableReport.complete}
             onChange={handleChange}
           />
           </div>
           <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
+          <div style={{ margin: '20px', color: 'black' }}>        
           <label htmlFor="dateOfIncidence">Fecha del Incidente</label>
-          <textarea
+          <br></br>
+          <br></br>
+          <input
             name="dateOfIncidence"
             value={editableReport.dateOfIncidence}
             onChange={handleChange}
           />
           </div>
-          <br></br>
-          <div style={{ marginLeft: '10px', color: 'black', marginBottom: '0.5rem' }}>            
-          <label htmlFor="dateCompleted">Fecha de Actualización del Informe</label>
+          <div style={{ margin: '20px', color: 'black' }}>            
+          <label htmlFor="detalles">Detalles</label>
           <textarea
-            name="dateCompleted"
-            value={editableReport.dateCompleted}
+            name="detalles"
+            value={editableReport.detalles}
             onChange={handleChange}
           />
           </div>
-          <br></br>
-          <button onClick={handleSaveClick}>Guardar</button>
-          <button onClick={handleCancelClick}>Cancelar</button>
+          <button onClick={handleSaveClick}  style={{ fontSize: '1.2rem', width: '180px', height: '50px', color: 'white', backgroundColor: 'blue', borderRadius: '10px', margin: '40px' }}>Guardar</button>
+          <button onClick={handleCancelClick}  style={{ fontSize: '1.2rem', width: '180px', height: '50px', color: 'white', backgroundColor: 'blue', borderRadius: '10px', margin: '40px' }}>Cancelar</button>
         </div>
       ) : (
         <button onClick={handleEditClick}>Editar</button>
