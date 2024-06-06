@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { InformesContext } from '../middleware/APIConnection';
 import EliminarInforme from './EliminarInforme.jsx';
-import UpdateInforme from './ActualizarInforme.jsx';
+import UpdateInforme from './UpdateInforme.jsx';
 import TimestampToDate from '../utils/TimestampToDate.jsx';
 
 export default function ListarInformes() {

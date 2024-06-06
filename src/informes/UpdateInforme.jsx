@@ -52,10 +52,6 @@ const UpdateReport = () => {
     <div>
       {isEditing ? (
         <div style={{ display: 'flex', borderRadius: '8px', backgroundColor: 'pink'}}>
-          <input
-            value={editableReport.inform}
-            style={{ width: '100px', height: '50px', color: 'white', backgroundColor: 'blue', fontSize: '1.5rem', margin: '40px', textAlign: 'center' }}
-          />
           <br></br>
           <br></br>
           <div style={{ margin: '20px', color: 'black' }}>
