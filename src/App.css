@@ -172,18 +172,23 @@ button.cerrar-informe {
 }
 
 .boton-crear-informe {
+  width: 180px;
   background-color: white;
   color: var(--outlet-color);
   text-transform: uppercase;
   font-weight: 500;
   font-size: 0.9rem;
   padding: 0 0.8rem;
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out; /* Transición suave */
   &:hover {
-    background-color: transparent;
-    color: white;
+    background-color: var(--outlet-color); /* Cambia el color de fondo */
+    color: white; /* Cambia el color del texto */
+    border: 2px solid transparent; /* Cambia el borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra */
   }
 }
+
 
 input[type="date"] {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
