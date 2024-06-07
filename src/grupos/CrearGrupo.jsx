@@ -1,81 +1,109 @@
 import { useState } from 'react';
 
+// Simulación de datos de API para directores y miembros
+const directores = [
+  { id: 1, nombre: 'Director A' },
+  { id: 2, nombre: 'Director B' },
+  // Agrega más directores según sea necesario
+];
+
+const miembros = [
+  { id: 1, nombre: 'Miembro A1' },
+  { id: 2, nombre: 'Miembro A2' },
+  { id: 3, nombre: 'Miembro B1' },
+  { id: 4, nombre: 'Miembro B2' },
+  // Agrega más miembros según sea necesario
+];
+
 const CrearGrupo = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [selectedOptions, setSelectedOptions] = useState('');
-  const [textAreaValue, setTextAreaValue] = useState('');
+  const [nombreGrupo, setNombreGrupo] = useState('');
+  const [directorId, setDirectorId] = useState('');
+  const [miembrosSeleccionados, setMiembrosSeleccionados] = useState([]);
+  const [descripcion, setDescripcion] = useState('');
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSelectChange = (e) => {
-    const options = Array.from(e.target.options);
-    const selectedValues = options.filter(option => option.selected).map(option => option.value);
-    setSelectedOptions(selectedValues);
-  };
-
-  const handleTextAreaChange = (e) => {
-    setTextAreaValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleCrearGrupo = (e) => {
     e.preventDefault();
-    // Aquí puedes manejar la lógica de envío del formulario
-    console.log('Input:', inputValue);
-    console.log('Select:', selectedOptions);
-    console.log('TextArea:', textAreaValue);
+    const nuevoGrupo = {
+      nombre: nombreGrupo,
+      directorId,
+      miembros: miembrosSeleccionados,
+      descripcion,
+    };
+    console.log('Grupo creado:', nuevoGrupo);
+    // Aquí puedes hacer una llamada a la API para guardar el grupo
+  };
+
+  const handleMiembrosChange = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
+    setMiembrosSeleccionados(selectedOptions);
   };
 
   return (
-    <div className="FormComponent">
-      <h1 style={{margin: '60px'}}>Crear Grupo</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{margin: '30px'}}>
-          <label style={{margin: '30px', fontSize: '2rem'}} htmlFor="inputField">Nombre del grupo</label>
+    <div>
+      <h1>Crear Grupo</h1>
+      <form onSubmit={handleCrearGrupo}>
+        <div>
+          <label htmlFor="nombreGrupo">Nombre del Grupo</label>
           <input
+            id="nombreGrupo"
             type="text"
-            id="inputField"
-            value={inputValue}
-            onChange={handleInputChange}
+            value={nombreGrupo}
+            onChange={(e) => setNombreGrupo(e.target.value)}
           />
         </div>
-        <div style={{margin: '30px'}} className="MultiSelectComponent">
-        <label style={{margin: '30px', fontSize: '2rem'}} htmlFor="selectField">Médicos</label>
-      <select multiple value={selectedOptions} onChange={handleSelectChange}>
-        <option value="opcion1">Óscar García</option>
-        <option value="opcion2">Juan Olmo</option>
-        <option value="opcion3">Sara García</option>
-        <option value="opcion4">Julia Gómez</option>
-        <option value="opcion5">Laura Martínez</option>
-        <option value="opcion6">Cándido Bosque</option>
-        <option value="opcion7">Benito Almagro</option>
-        <option value="opcion8">Carmen López</option>
-      </select>
-      {selectedOptions.length > 0 && (
         <div>
-          <h2>Has seleccionado:</h2>
-          <ul>
-            {selectedOptions.map((option, index) => (
-              <li key={index}>{option}</li>
+          <label htmlFor="director">Director del Grupo</label>
+          <select
+            id="director"
+            value={directorId}
+            onChange={(e) => setDirectorId(e.target.value)}
+          >
+            <option value="" disabled>Selecciona un director</option>
+            {directores.map(director => (
+              <option key={director.id} value={director.id}>
+                {director.nombre}
+              </option>
             ))}
-          </ul>
+          </select>
         </div>
-      )}
-    </div>
         <div>
-          <label style={{margin: '30px', fontSize: '2rem'}} htmlFor="textAreaField">Comentarios</label>
-          <textarea
-            id="textAreaField"
-            value={textAreaValue}
-            onChange={handleTextAreaChange}
-          />
+          <label htmlFor="miembros">Miembros del Grupo</label>
+          <select
+            id="miembros"
+            multiple
+            value={miembrosSeleccionados}
+            onChange={handleMiembrosChange}
+          >
+            {miembros.map(miembro => (
+              <option key={miembro.id} value={miembro.id}>
+                {miembro.nombre}
+              </option>
+            ))}
+          </select>
         </div>
-        <button style={{margin: '30px', fontSize: '4rem', width: '100px'}} type="submit">+</button>
+        <div>
+        <h4>Miembros Seleccionados:</h4>
+        <ul>
+          {miembrosSeleccionados.map(miembroId => {
+            const miembro = miembros.find(m => m.id === parseInt(miembroId));
+            return (
+              <li key={miembroId}>{miembro?.nombre}</li>
+            );
+          })}
+        </ul>
+      </div>
+        <div>
+          <label htmlFor="descripcion">Comentarios</label>
+          <textarea
+            id="descripcion"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+          ></textarea>
+        </div>
+        <button type="submit">+</button>
       </form>
     </div>
   );
 };
 
 export default CrearGrupo;
-    
