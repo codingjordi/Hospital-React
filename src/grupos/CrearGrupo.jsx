@@ -4,6 +4,8 @@ import { useState } from 'react';
 const directores = [
   { id: 1, nombre: 'Director A' },
   { id: 2, nombre: 'Director B' },
+  { id: 3, nombre: 'Director C' },
+  { id: 4, nombre: 'Director D' },
   // Agrega más directores según sea necesario
 ];
 
@@ -12,6 +14,10 @@ const miembros = [
   { id: 2, nombre: 'Miembro A2' },
   { id: 3, nombre: 'Miembro B1' },
   { id: 4, nombre: 'Miembro B2' },
+  { id: 5, nombre: 'Miembro C1' },
+  { id: 6, nombre: 'Miembro C2' },
+  { id: 7, nombre: 'Miembro D1' },
+  { id: 8, nombre: 'Miembro D2' },
   // Agrega más miembros según sea necesario
 ];
 
@@ -35,14 +41,16 @@ const CrearGrupo = () => {
 
   const handleMiembrosChange = (e) => {
     const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
-    setMiembrosSeleccionados(selectedOptions);
+    if (selectedOptions && !miembrosSeleccionados.includes(selectedOptions)) {
+      setMiembrosSeleccionados([...miembrosSeleccionados, selectedOptions]);
+    }
   };
 
   return (
     <div>
-      <h1>Crear Grupo</h1>
+      <h1 style={{marginBottom: '20px'}}>Crear Grupo</h1>
       <form onSubmit={handleCrearGrupo}>
-        <div>
+        <div style={{marginBottom: '20px'}}>
           <label htmlFor="nombreGrupo">Nombre del Grupo</label>
           <input
             id="nombreGrupo"
@@ -51,7 +59,7 @@ const CrearGrupo = () => {
             onChange={(e) => setNombreGrupo(e.target.value)}
           />
         </div>
-        <div>
+        <div style={{marginBottom: '20px'}}>
           <label htmlFor="director">Director del Grupo</label>
           <select
             id="director"
@@ -66,14 +74,14 @@ const CrearGrupo = () => {
             ))}
           </select>
         </div>
-        <div>
+        <div style={{marginBottom: '20px'}}>
           <label htmlFor="miembros">Miembros del Grupo</label>
           <select
             id="miembros"
-            multiple
             value={miembrosSeleccionados}
             onChange={handleMiembrosChange}
           >
+            <option value="" disabled>Selecciona los miembros</option>
             {miembros.map(miembro => (
               <option key={miembro.id} value={miembro.id}>
                 {miembro.nombre}
@@ -81,7 +89,7 @@ const CrearGrupo = () => {
             ))}
           </select>
         </div>
-        <div>
+        <div style={{marginBottom: '20px'}}>
         <h4>Miembros Seleccionados:</h4>
         <ul>
           {miembrosSeleccionados.map(miembroId => {
@@ -92,7 +100,7 @@ const CrearGrupo = () => {
           })}
         </ul>
       </div>
-        <div>
+        <div style={{marginBottom: '20px'}}>
           <label htmlFor="descripcion">Comentarios</label>
           <textarea
             id="descripcion"
@@ -100,7 +108,7 @@ const CrearGrupo = () => {
             onChange={(e) => setDescripcion(e.target.value)}
           ></textarea>
         </div>
-        <button type="submit">+</button>
+        <button style={{fontSize: '20px', width: '60px'}} type="submit">+</button>
       </form>
     </div>
   );

@@ -67,9 +67,9 @@ const BuscarGrupo = () => {
 
   return (
     <div>
-      <h1>Buscar Grupo</h1>
+      <h1 style={{marginBottom: '20px'}}>Buscar Grupo</h1>
       <label htmlFor="grupo-select">Selecciona un grupo</label>
-      <select
+      <select style={{marginBottom: '20px'}}
         id="grupo-select"
         value={selectedGroupId || ''}
         onChange={(e) => setSelectedGroupId(e.target.value)}
@@ -84,7 +84,7 @@ const BuscarGrupo = () => {
 
       {selectedGroupDetails && (
         <div>
-          <p><strong>Director:</strong> {selectedGroupDetails.director}</p>
+          <h2 style={{marginBottom: '10px'}}>Director: {selectedGroupDetails.director}</h2>
           <h3>Miembros:</h3>
           <ul>
             {selectedGroupDetails.miembros.map((miembro, index) => (
