@@ -26,6 +26,10 @@ The project has the following structure:
 - **package.json**: Lists the project dependencies and scripts.
 - **vite.config.js**: Configuration file for Vite.
 
+## Tree Component
+
+![](https://i.postimg.cc/ZqjSZ0PW/2024-06-10-18-55.png)
+
 ## Dependencies
 The project uses the following major dependencies:
 
