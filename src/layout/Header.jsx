@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Tema from '../utils/Tema';
 import Configuracion from '../utils/Configuracion';
 
 export default function Header(){
@@ -11,7 +10,7 @@ export default function Header(){
                 <NavLink to="/mensajes" className="nav-link" activeClassName="active">Mensajes</NavLink>
             </nav>
             <div style={{display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem'}}>
-                <Tema />
+                <i className="fas fa-moon" /*onClick={handleChangeTema}*/ style={{color: 'white', cursor: 'pointer'}}></i>
                 <Configuracion />
             </div>
 

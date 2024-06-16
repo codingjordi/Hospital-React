@@ -4,12 +4,15 @@ import EliminarInforme from './EliminarInforme.jsx';
 import TimestampToDate from '../utils/TimestampToDate.jsx';
 import VentanaInforme from './VentanaInformes.jsx';
 
-export default function ListarInformes() {
-  const { informes, isLoading } = useContext(InformesContext);
+export default function ListarInformes( { searchResults }) {
+
+  const { isLoading } = useContext(InformesContext);
   const [selectedInforme, setSelectedInforme] = useState(null);
 
+  let results = searchResults;
+
   const handleAbrirInforme = (informe) => {
-    setSelectedInforme(informe);
+    setSelectedInforme(informe);  
   };
 
   const handleCerrarInforme = () => {
@@ -41,22 +44,25 @@ export default function ListarInformes() {
               </tr>
             </thead>
             <tbody>
-              {informes.map((informe) => (
-                <tr key={informe.createdAt}>
-                  <td><TimestampToDate timestamp={informe.dateOfIncidence} /></td>
-                  <td>{informe.name}</td>
-                  <td>{informe.surnames}</td>
-                  <td>{informe.group}</td>
-                  <td>{informe.gravityOfIncidence}</td>
-                  <td>{informe.complete ? 'SI' : 'NO'}</td>
-                  <td><EliminarInforme informeId={informe.id} /></td>
-                  <td><button onClick={() => handleAbrirInforme(informe)} style={{ padding: '0.5rem', borderRadius: '5px', backgroundColor: '#2148C0', color: 'white', border: 'none' }}>Abrir</button></td>
+              {results.map((result) => (
+                <tr key={result.createdAt}>
+                  <td><TimestampToDate timestamp={result.dateOfIncidence} /></td>
+                  <td>{result.name}</td>
+                  <td>{result.surnames}</td>
+                  <td>{result.group}</td>
+                  <td>{result.gravityOfIncidence}</td>
+                  <td>{result.complete ? 'SI' : 'NO'}</td>
+                  <td><EliminarInforme informeId={result.id} /></td>
+                  <td><button onClick={() => handleAbrirInforme(result)} style={{ padding: '0.5rem', borderRadius: '5px', backgroundColor: '#2148C0', color: 'white', border: 'none' }}>Abrir</button></td>
                 </tr>
               ))}
             </tbody>
           </table>
           {selectedInforme && (
-            <VentanaInforme selectedInforme={selectedInforme} handleCerrarInforme={handleCerrarInforme} />
+            <VentanaInforme
+              selectedInforme={selectedInforme}
+              handleCerrarInforme={handleCerrarInforme}
+            />
           )}
         </div>
       )}

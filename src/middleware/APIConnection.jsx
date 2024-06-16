@@ -60,19 +60,19 @@ const  APIConnection = ({ children }) => {
     }
   };
 
-  {/*const getInformeById = async (id) => {
+  const getInformeById = async (id) => {
     try {
       const response = await axios.get(
         `${API_URL}/${informe.id}`,
         informe
       );
       setInformes(
-        informes.map((informe) => (i.id === informe.id ? response.data : i))
+        informes.map((informe) => (informe.id === informe.id ? response.data : i))
       );
     } catch (error) {
       console.error("Error getting informe:", error);
     }
-  }*/}
+  }
 
     return (
         <InformesContext.Provider
@@ -82,6 +82,7 @@ const  APIConnection = ({ children }) => {
             deleteInforme,
             addInforme,
             updateInforme,
+            getInformeById
         }}
         >
         {children}

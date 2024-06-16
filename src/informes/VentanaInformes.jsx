@@ -8,13 +8,13 @@ const VentanaInforme = ({ selectedInforme, handleCerrarInforme}) => {
                 <button onClick={handleCerrarInforme} className='cerrar-informe'>X</button>
               </div>
               <div style={{ color: 'black', marginTop: '1rem' }}>
-                <p><strong>Fecha del incidente:</strong> <TimestampToDate timestamp={selectedInforme.dateOfIncidence} /></p>
-                <p><strong>Nombre:</strong> {selectedInforme.name}</p>
-                <p><strong>Apellidos:</strong> {selectedInforme.surnames}</p>
-                <p><strong>Tipo de lesión:</strong> {selectedInforme.group}</p>
-                <p><strong>Nivel de gravedad:</strong> {selectedInforme.gravityOfIncidence}</p>
-                <p><strong>Completado:</strong> {selectedInforme.complete ? 'SI' : 'NO'}</p>
-                <p><strong>Detalles:</strong> {selectedInforme.inform}</p>
+                <p><b>Fecha del incidente:</b> <TimestampToDate timestamp={selectedInforme.dateOfIncidence} /></p>
+                <p><b>Nombre:</b> {selectedInforme.name}</p>
+                <p><b>Apellidos:</b> {selectedInforme.surnames}</p>
+                <p><b>Tipo de lesión:</b> {selectedInforme.group}</p>
+                <p><b>Nivel de gravedad:</b> {selectedInforme.gravityOfIncidence}</p>
+                <p><b>Completado:</b> {selectedInforme.complete ? 'SI' : 'NO'}</p>
+                <p><b>Detalles:</b> {selectedInforme.inform}</p>
               </div>
             </div>
     );

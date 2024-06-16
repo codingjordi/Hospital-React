@@ -1,11 +1,9 @@
-import ListarInformes from "./ListarInformes";
-import FiltrosBuscarInformes from "./FiltrosBuscarInformes";
+import Componente from './Componente'
 
 function BuscarInformes() {
     return (
         <>
-            <FiltrosBuscarInformes />
-            <ListarInformes />
+            <Componente />
         </>
     );
 }
