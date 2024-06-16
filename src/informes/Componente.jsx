@@ -1,11 +1,11 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import FiltrosBuscarInforme from './FiltrosBuscarInformes';
 import ListarInformes from './ListarInformes';
 import { InformesContext } from '../middleware/APIConnection';
 
 export default function Componente() {
     const { informes } = useContext(InformesContext);
-    const [searchResults, setSearchResults] = useState(informes);
+    const [searchResults, setSearchResults] = useState([]);
     const [query, setQuery] = useState({
         name: '',
         surnames: '',
@@ -16,6 +16,10 @@ export default function Componente() {
         inform: '',
         id: ''
     });
+
+    useEffect(() => {
+        setSearchResults(informes);
+    }, [informes]);
 
     function buscarInformes() {
         const resultadosFiltrados = informes.filter(i =>
@@ -34,8 +38,6 @@ export default function Componente() {
             ...query,
             name: e.target.value
         });
-        console.log(e.target.value);
-        console.log(informes)
     }
 
     function handleChangeSurnames(e) {
@@ -50,7 +52,6 @@ export default function Componente() {
             ...query,
             group: e.target.value
         });
-        console.log(e.target.value)
     }
 
     function handleChangeGravity(e) {
